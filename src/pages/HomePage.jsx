@@ -1,9 +1,13 @@
 function HomePage(){
     return(
     <>
-        <h1>HomePage</h1>
+    <form method="GET" action="/search">
+        <input type="text" />
+        <button type="submit">Search your Favourite Movie</button>
+    </form>
     </>
     )
 }
 
 export default HomePage;
+

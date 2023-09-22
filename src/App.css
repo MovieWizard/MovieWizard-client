@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.nav-bar {
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  padding-left: 10px;
+}
+
+.sign {
+  margin-right: 50px;
+}
