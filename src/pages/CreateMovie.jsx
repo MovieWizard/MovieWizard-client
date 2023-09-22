@@ -13,7 +13,7 @@ function CreateMovie() {
     const [imdbRating, setImdbRating] = useState("");
     const [language, setLanguage] = useState("");
 
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +33,7 @@ function CreateMovie() {
         } catch (error) {
             console.log(error)
         }
-        //navigate("/movies")
+        navigate("/movies")
     }
 
     return(
@@ -104,6 +104,8 @@ function CreateMovie() {
             placeholder="Insert Language"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}/>
+
+            <button>Create</button>
         </form>
         </>
 
