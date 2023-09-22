@@ -4,9 +4,9 @@ import { Navigate } from 'react-router-dom'
 
 function IsPrivate( { children }) {
 
-    const { isLoggedIn, isLoading } = useContext(AuthContext);
+    const { isLoggedIn, isLoggedOut } = useContext(AuthContext);
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoggedOut) return <p>You need to Login to have access</p>;
 
     if (!isLoggedIn) {
         return <Navigate to="/login" />;
