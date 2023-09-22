@@ -1,72 +1,71 @@
 import { useState } from "react";
-import  {Link, useNavigate} from 'react-router-dom';
-import axios from 'axios';
-
-const API_URL = "http://localhost:5005";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function SignupPage(props) {
-    const [email, setemail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [errorMessage, setErrorMessage] = useState(undefined);
+  const API_URL = "http://localhost:5005";
 
-    const navigate = useNavigate();
-    
-    const handleEmail = (e) => setEmail(e.target.value);
-    const handlePassword = (e) => setPassword(e.target.value);
-    const handleName =  (e) => setName(e.target.value);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [errorMessage, setErrorMessage] = useState(undefined);
 
-    const handleSignupSubmit = (e) => {
-        e.preventDefault();
+  const navigate = useNavigate();
 
-        const requestBody = {email, password, name};
-        axios.post(`${API_URL}/auth/signup`, requestBody)
-            .then((response) => {
-                navigate('login');
-            })
-            .catch((err) => {
-                const errorDescription = err.response.data.message;
-                setErrorMessage(errorDescription);
-            })
-    };
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
+  const handleName = (e) => setName(e.target.value);
 
-    return (
-        <div className="SignupPage">
-            <h1>Sign Up</h1>
+  const handleSignupSubmit = (e) => {
+    e.preventDefault();
 
-            <form onSubmit ={handleSignupSubmit}>
-                <label>Email:</label>
-                <input 
-                type="email"
-                name="email"
-                value={email}
-                onChange={handleEmail}/>
+    const requestBody = { email, password, name };
+    axios
+      .post(`${API_URL}/auth/signup`, requestBody)
+      .then((response) => {
+        const userData = response.data;
 
-            <label>Password:</label>
-                <input 
-                type="password"
-                name="password"
-                value={password}
-                onChange={handlePassword}
-                 />
+        navigate("/login");
+      })
+      .catch((err) => {
+        if (err.response && err.response.data && err.response.data.message) {
+          const errorDescription = err.response.data.message;
+          setErrorMessage;
+        } else {
+          console.log(err);
+          setErrorMessage("An error occurred. Please try again later.");
+        }
+      });
+  };
 
-            <label>Name:</label>
-                <input 
-                type="text"
-                name="name"
-                value={name}
-N               onChange={handleName}
-                 /> 
+  return (
+    <div className="SignupPage">
+      <h1>Sign Up</h1>
 
-            <button type="submit">Sign Up</button>    
-           </form>
+      <form onSubmit={handleSignupSubmit}>
+        <label>Email:</label>
+        <input type="email" name="email" value={email} onChange={handleEmail} />
 
-            { errorMessage && <p className="error-message">{errorMessage}</p>}
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePassword}
+        />
 
-            <p>Already have account?</p>
-            <Link to={"/login"}> Login </Link>
-        </div>
-    )
+        <label>Name:</label>
+        <input type="text" name="name" value={name} N onChange={handleName} />
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+      <p>Already have account?</p>
+      <Link to={"/login"}> Login </Link>
+    </div>
+  );
 }
 
 export default SignupPage;

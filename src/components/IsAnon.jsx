@@ -7,7 +7,27 @@ import { Navigate } from "react-router-dom";
 function IsAnon({children}) {
     const { isLoggedIn, isLoading } = useContext(AuthContext);
 
-    if (isLoading) return <p>Loading...</p>;
+    if (!isLoggedIn) 
+        return (
+    <>
+        <h1>Login</h1>
+
+        <form onSubmit={handleLoginSubmit}>
+          <label>Email:</label>
+          <input type="email" name="email" value={email} onChange={handleEmail} />
+  
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
+  
+          <button type="submit">Login</button>
+        </form>
+    </>
+    )
 
     if (isLoggedIn) {
         return <Navigate to="/"/>;
