@@ -12,6 +12,7 @@ import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import MovieDetails from "./pages/MovieDetails";
 import SearchResults from './pages/SearchResults';
+import MoodMovieLists from "./pages/MoodMovieLists";
 
 
 function App() {
@@ -29,9 +30,10 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/:movieId" element={<MovieDetails />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />} />
          
           <Route path="/search" element={<SearchResults />} />
+          <Route path="/mood-lists" element={<MoodMovieLists />} />
 
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
