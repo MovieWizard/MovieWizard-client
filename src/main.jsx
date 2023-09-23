@@ -7,11 +7,11 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-      <AuthProviderWrapper>
   <React.StrictMode>
     <Router>
+    <AuthProviderWrapper>
         <App />
+      </AuthProviderWrapper>
       </Router>
   </React.StrictMode>
-      </AuthProviderWrapper>
 )
