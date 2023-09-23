@@ -28,7 +28,7 @@ function SearchResults () {
     const handleClick = (movie) => {
         navigate(`/movies/${movie._id}`)
     }
-//I will need here then to show the search results, maybe includes method
+//TODO I will need here then to show the search results, maybe includes method
 
 const SearchResults = () => {
     if(SearchResults === null) {
