@@ -21,11 +21,11 @@ function MovieDetails() {
 
     return (
         <>
-        <h1>{movieDetails.Title}</h1>
-        <img src={movieDetails.Poster} alt="movie-image" />
-        <h3>Year: {movieDetails.Year} | Rating: {movieDetails.imdbRating} | Language: {movieDetails.Language} | Genre: {movieDetails.Genre}</h3>
-        <h4>Cast: {movieDetails.Actors}</h4>
-        <p>Plot: {movieDetails.Plot}</p>
+        <h1>{movieDetails.title}</h1>
+        <img src={movieDetails.poster} alt="movie-image" />
+        <h3>Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} | Language: {movieDetails.language} | Genre: {movieDetails.genre}</h3>
+        <h4>Cast: {movieDetails.actors}</h4>
+        <p>Plot: {movieDetails.plot}</p>
 
         </>
     )
