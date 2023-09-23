@@ -10,7 +10,8 @@ function MoodMovieLists() {
 
   const [lists, setLists] = useState([]);
   const [showModal, setShowModal] = useState(false);
-
+  const [newMood, setNewMood] = useState({});
+  const [isSubmited, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     axios
@@ -26,7 +27,7 @@ function MoodMovieLists() {
           error: e,
         });
       });
-  }, []);
+  }, [isSubmited]);
 
   const navigate = useNavigate();
 
@@ -34,20 +35,36 @@ function MoodMovieLists() {
     navigate(`/mood-lists/${list._id}`);
   };
 
-
-
-const handleOpenModal = () => {
+  const handleOpenModal = () => {
     setShowModal(true);
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate(`/mood-lists`)  
+    setNewMood({ title: "" });
+  };
 
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setNewMood((newMood) => ({
+      ...newMood,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(`${apiUrl}/api/mood-lists`, newMood, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => setIsSubmitted(!isSubmited), handleCloseModal())
+
+      .catch((e) => console.log("error", e));
   };
 
   const moodLists = () => {
-    if (moodLists === null) {
+    if (lists === null) {
       return <p>Mood Lists are Loading...</p>;
     }
 
@@ -59,24 +76,26 @@ const handleOpenModal = () => {
       );
     });
   };
-  console.log("moodlists", moodLists());
   return (
     <>
       {moodLists()}
 
-
-      <Modal
-        showModal={showModal}
-        handleCloseModal={handleCloseModal}
-      >
-
-      <p className="modal-font-color">Create Mood list</p>
-      <button type="submit" onClick={handleCloseModal}>Create</button>
-
-
+      <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              value={newMood.title || ""}
+              name="title"
+              type="text"
+              placeholder="Enter mood list name"
+              onChange={handleChange}
+            />
+            <hr />
+          </label>
+          <button type="submit">Create</button>
+        </form>
       </Modal>
-      <button onClick={handleOpenModal} >Add new Mood List</button>
-
+      <button onClick={handleOpenModal}>Add new Mood List</button>
     </>
   );
 }
