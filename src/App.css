@@ -41,6 +41,10 @@
   color: #888;
 } */
 
+*>*{
+  box-sizing: border-box;
+}
+
 .nav-bar {
   text-align: center;
   /* margin: 0; */
@@ -84,4 +88,77 @@ a {
 
 .modal-font-color {
   color: black;
+}
+
+/* ModalV2 styling */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(203, 205, 218, 0.8);
+  z-index: 10;
+  transition: opacity 200ms;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 16px));
+  width: calc(100% - 32px);
+  max-width: 350px;
+  max-height: calc(100% - 32px);
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #242424;
+  z-index: 10;
+  overflow: auto;
+  transition:
+    opacity 200ms,
+    transform 200ms;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-content.open {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    color 200ms,
+    background-color 200ms;
+}
+
+.modal-close-button:hover {
+  background-color: rgb(203, 205, 218);
+  color: white;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  
 }
