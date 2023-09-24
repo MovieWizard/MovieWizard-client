@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Movie from "../components/Movie";
 
 function MovieDetails() {
   const { movieId } = useParams();
@@ -21,8 +22,9 @@ function MovieDetails() {
 
   return (
     <>
-      <h1>{movieDetails.Title}</h1>
-      <img src={movieDetails.Poster} alt="movie-image" />
+    <Movie
+      Title={movieDetails.Title}
+      Poster={movieDetails.Poster}/>
       <h3>
         Year: {movieDetails.Year} | Rating: {movieDetails.imdbRating} |
         Language: {movieDetails.Language} | Genre: {movieDetails.Genre}
