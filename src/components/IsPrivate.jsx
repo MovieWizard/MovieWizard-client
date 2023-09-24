@@ -1,16 +1,34 @@
-import { useContext } from 'react';
-import { AuthContext } from '../context/auth.context';
-import { Navigate } from 'react-router-dom'
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/auth.context";
+import { ModalV2 } from "./Modal-v2";
+import LoginPage from "../forms/LoginPage";
 
-function IsPrivate( { children }) {
+function IsPrivate({ children }) {
+  const { isLoggedIn } = useContext(AuthContext);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-    const { isLoggedIn } = useContext(AuthContext);
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
+  };
 
-    if (!isLoggedIn) {
-        return <Navigate to="/login" />;
-    } else {
-        return children;
-    }
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
+
+  if (!isLoggedIn) {
+    return (
+      <>
+        <button onClick={openLoginModal}>Log in to create a movie</button>
+        {isLoginModalOpen && (
+          <ModalV2 isOpen={isLoginModalOpen} onClose={closeLoginModal}>
+            <LoginPage />
+          </ModalV2>
+        )}
+      </>
+    );
+  } else {
+    return children;
+  }
 }
 
 export default IsPrivate;
