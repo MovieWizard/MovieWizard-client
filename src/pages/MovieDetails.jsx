@@ -52,8 +52,7 @@ function MovieDetails({ props }) {
 
   return (
     <>
-      <h1>{movieDetails.title}</h1>
-      <Movie />
+      <Movie {...movieDetails}/>
       <h3>
         Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} |
         Language: {movieDetails.language} | Genre: {movieDetails.genre}
