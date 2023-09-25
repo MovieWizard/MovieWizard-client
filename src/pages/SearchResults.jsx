@@ -1,59 +1,64 @@
 import React from "react";
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Movie from "../components/Movie";
 
+const apiUrl = "http://localhost:5005";
+function SearchResults() {
+  const [search, setSearch] = useState([]);
+  const [searchParams] = useSearchParams(window.location.search);
+
+  const searchParamResult = searchParams.get("query");
+
+  useEffect(() => {
+    // Clear search results if it's just white spaces
+    if (searchParamResult.trim() === "") {
+        setSearch([]); 
+        return;
+    }
+    axios
+      .get(`${apiUrl}/api/search?q=${searchParamResult}`)
+      .then((res) => {
+        setSearch(res.data);
+      })
+      .catch((e) => console.log("error to get search results", e));
+  }, []);
+  const navigate = useNavigate();
+
+  const handleClick = (movie) => {
+    navigate(`/movies/${movie._id}`);
+  };
+
+  const handleCreateClick = () => {
+    navigate(`/create-movie`);
+  };
 
 
-const apiUrl =  "http://localhost:5005"
-function SearchResults () {
-
-    const [search, setSearch] = useState([])
-    const [searchParams] = useSearchParams(window.location.search);
-
-    const searchParamResult = searchParams.get("query")
-
-    useEffect(() => {
-        axios.get(`${apiUrl}/api/search?q=${searchParamResult}`)
-        .then(res => {
-            setSearch(res.data)
-            console.log("here", res);     
-        })
-        .catch(e => console.log("error to get search results", e))
-
-    }, [])
-    const navigate = useNavigate()
-
-    const handleClick = (movie) => {
-        navigate(`/movies/${movie._id}`)
+  const SearchResults = () => {
+    if (SearchResults === null) {
+      return <p>Loading Results...</p>;
     }
 
-//TODO I will need here then to show the search results, maybe includes method
+  };
 
-const SearchResults = () => {
-    if(SearchResults === null) {
-        return <p>Loading Results...</p>
-    }
-    return search.map( e => {
-        return (
-            <section key={e._id} onClick={()=>handleClick(e)}>
-                <Movie {...e}/>    
-            </section>
-            )
-    })
-
-    
+  return (
+    <div>
+      {search.length === 0 ? (
+        <>
+          <p>No results found.</p>
+          <button onClick={() => {navigate('/')}}>Search again</button>
+          <button onClick={() => handleCreateClick()}>Add new Movie</button>
+        </>
+      ) : (
+        search.map((e) => (
+          <section key={e._id} onClick={() => handleClick(e)}>
+            <Movie {...e} />
+          </section>
+        ))
+      )}
+    </div>
+  );
 }
 
-return (
-    <>
-    {SearchResults()}
-    
-    </>
-)
-    
-}
-
-
-export default SearchResults
+export default SearchResults;
