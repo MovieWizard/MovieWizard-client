@@ -14,7 +14,7 @@ function NavBar() {
     <div className="nav-bar">
       <nav>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Suggestions</NavLink>
+        <NavLink to="/what-to-watch">What to watch</NavLink>
         <NavLink to="/create-movie">Create a Movie</NavLink>
         <NavLink className="space" to="/mood-lists">
           Mood Lists
