@@ -18,16 +18,26 @@ function CreateMovie() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`http://localhost:5005/api/movies`, {
-        title: title,
-        poster: poster,
-        year: year,
-        actors: actors,
-        genre: genre,
-        plot: plot,
-        imdbRating: imdbRating,
-        language: language,
-      });
+      const token = localStorage.getItem("authToken");
+      console.log(token);
+      const response = await axios.post(
+        `http://localhost:5005/api/movies`,
+        {
+          title: title,
+          poster: poster,
+          year: year,
+          actors: actors,
+          genre: genre,
+          plot: plot,
+          imdbRating: imdbRating,
+          language: language,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(response.data);
     } catch (error) {
       console.log(error);

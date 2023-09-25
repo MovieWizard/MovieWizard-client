@@ -9,13 +9,11 @@ import CreateMovie from "./pages/CreateMovie";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import MovieDetails from "./pages/MovieDetails";
-import SearchResults from './pages/SearchResults';
+import SearchResults from "./pages/SearchResults";
 import MoodMovieLists from "./pages/MoodMovieLists";
-
+import Profile from "./pages/ProfilePage";
 
 function App() {
-
-
   return (
     <div className="App">
       <NavBar />
@@ -31,10 +29,18 @@ function App() {
           }
         />
         <Route path="/movies/:movieId" element={<MovieDetails />} />
-         
-          <Route path="/search" element={<SearchResults />} />
-          <Route path="/mood-lists" element={<MoodMovieLists />} />
 
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <Profile />
+            </IsPrivate>
+          }
+        />
+
+        <Route path="/search" element={<SearchResults />} />
+        <Route path="/mood-lists" element={<MoodMovieLists />} />
       </Routes>
     </div>
   );

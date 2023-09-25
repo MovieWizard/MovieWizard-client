@@ -20,17 +20,16 @@ function NavBar() {
           Mood Lists
         </NavLink>
         {isLoggedIn ? (
-          <a href="#" onClick={logOutUser}>
-            Logout
-          </a>
+          <>
+            <NavLink to="/profile">Profile</NavLink>
+            <a href="#" onClick={logOutUser}>
+              Logout
+            </a>
+          </>
         ) : (
           <>
-            <button onClick={() => setIsLoginModalOpen(true)}>
-              Login
-            </button>
-            <button onClick={() => setIsSignupModalOpen(true)}>
-              Sign Up
-            </button>
+            <button onClick={() => setIsLoginModalOpen(true)}>Login</button>
+            <button onClick={() => setIsSignupModalOpen(true)}>Sign Up</button>
             <ModalV2
               isOpen={isLoginModalOpen}
               onClose={() => setIsLoginModalOpen(false)}
