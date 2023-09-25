@@ -1,14 +1,14 @@
 import React from "react";
 
 function Movie(props) {
-  const { Title, Poster } = props;
+  //const { title, poster } = props;
 
   return (
     <>
-      <h3>{Title}</h3>
-      <img src={Poster} alt="movie-image" />
+      <h3>{props.title}Hello</h3>
+      <img src={props.poster} alt="movie-image" />
     </>
   );
 }
 
-export default Movie; 
+export default Movie;

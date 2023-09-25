@@ -22,15 +22,14 @@ function MovieDetails() {
 
   return (
     <>
-    <Movie
-      Title={movieDetails.Title}
-      Poster={movieDetails.Poster}/>
+      <h1>{movieDetails.title}</h1>
+      <Movie/>
       <h3>
-        Year: {movieDetails.Year} | Rating: {movieDetails.imdbRating} |
-        Language: {movieDetails.Language} | Genre: {movieDetails.Genre}
+        Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} |
+        Language: {movieDetails.language} | Genre: {movieDetails.genre}
       </h3>
-      <h4>Cast: {movieDetails.Actors}</h4>
-      <p>Plot: {movieDetails.Plot}</p>
+      <h4>Cast: {movieDetails.actors}</h4>
+      <p>Plot: {movieDetails.plot}</p>
     </>
   );
 }
