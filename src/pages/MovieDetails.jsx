@@ -52,7 +52,7 @@ function MovieDetails({ props }) {
 
   return (
     <>
-      <Movie {...movieDetails}/>
+      <Movie {...movieDetails} />
       <h3>
         Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} |
         Language: {movieDetails.language} | Genre: {movieDetails.genre}
@@ -60,10 +60,12 @@ function MovieDetails({ props }) {
       <h4>Cast: {movieDetails.actors}</h4>
       <p>Plot: {movieDetails.plot}</p>
 
-      <div>
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
-      </div>
+      {isOwner && (
+        <div>
+          <button onClick={handleEdit}>Edit</button>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+      )}
     </>
   );
 }
