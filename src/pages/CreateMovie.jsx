@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import YearDropdown from "../components/YearDropDown";
 
 function CreateMovie() {
   const [title, setTitle] = useState("");
   const [poster, setPoster] = useState("");
-  const [year, setYear] = useState("");
+  const [year, setYear] = useState([]);
   const [actors, setActors] = useState("");
   const [genre, setGenre] = useState("");
   const [plot, setPlot] = useState("");
@@ -71,14 +72,8 @@ function CreateMovie() {
         />
 
         <label>Year:</label>
-        <input
-          type="number"
-          name="year"
-          placeholder="Insert Year"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-        />
-
+        <YearDropdown />
+        
         <label>Cast:</label>
         <input
           type="text"
