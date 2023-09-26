@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-
 function LoginPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +25,7 @@ function LoginPage(props) {
         console.log("JWRT token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
+        navigate("/profile");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
