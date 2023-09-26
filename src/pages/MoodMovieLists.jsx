@@ -67,6 +67,10 @@ function MoodMovieLists() {
       return <p>Mood Lists are Loading...</p>;
     }
 
+    if (lists.length === 0) {
+      return <p>No mood lists found for this user.</p>;
+    }
+
     return lists.map((e) => {
       return (
         <section key={e._id} className="card" onClick={() => handleClick(e)}>
