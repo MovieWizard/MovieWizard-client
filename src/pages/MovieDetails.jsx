@@ -14,7 +14,7 @@ function MovieDetails({ props }) {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.API_URL}/api/movies/${movieId}`)
+      .get(`${import.meta.env.VITE_API_URL}/api/movies/${movieId}`)
       .then((response) => {
         console.log(response.data);
         setMovieDetails(response.data);
@@ -36,7 +36,7 @@ function MovieDetails({ props }) {
     if (isOwner) {
       const token = localStorage.getItem("authToken");
       axios
-        .delete(`${import.meta.env.API_URL}/api/movies/${movieId}`, {
+        .delete(`${import.meta.env.VITE_API_URL}/api/movies/${movieId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

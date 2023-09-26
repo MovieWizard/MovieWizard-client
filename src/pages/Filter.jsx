@@ -13,7 +13,7 @@ const [filterResults, setFilterResults] = useState([])
 
 
 useEffect(() => {
-    axios.get(`${import.meta.env.API_URL}/filters`)
+    axios.get(`${import.meta.env.VITE_API_URL}/filters`)
     .then(res => res.json(res.data))
     .catch(e => console.log("error to get filter results", e))
 

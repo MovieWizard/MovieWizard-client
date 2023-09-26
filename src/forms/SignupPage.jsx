@@ -20,7 +20,7 @@ function SignupPage(props) {
 
     const requestBody = { email, password, name };
     axios
-      .post(`${import.meta.env.API_URL}/auth/signup`, requestBody)
+      .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
       .then((response) => {
         const userData = response.data;
 

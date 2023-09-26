@@ -18,7 +18,7 @@ function SearchResults() {
         return;
     }
     axios
-      .get(`${import.meta.env.API_URL}/api/search?q=${searchParamResult}`)
+      .get(`${import.meta.env.VITE_API_URL}/api/search?q=${searchParamResult}`)
       .then((res) => {
         setSearch(res.data);
       })

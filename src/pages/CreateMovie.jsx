@@ -24,7 +24,7 @@ function CreateMovie() {
       const token = localStorage.getItem("authToken");
       console.log(token);
       const response = await axios.post(
-        `${import.meta.env.API_URL}/api/movies`,
+        `${import.meta.env.VITE_API_URL}/api/movies`,
         {
           title: title,
           poster: poster,

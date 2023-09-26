@@ -14,7 +14,7 @@ function MoodMovieLists() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.API_URL}/api/mood-lists`, {
+      .get(`${import.meta.env.VITE_API_URL}/api/mood-lists`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
