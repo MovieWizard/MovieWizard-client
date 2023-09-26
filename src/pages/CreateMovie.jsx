@@ -18,11 +18,13 @@ function CreateMovie() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
+
     try {
       const token = localStorage.getItem("authToken");
       console.log(token);
       const response = await axios.post(
-        `http://localhost:5005/api/movies`,
+        `${import.meta.env.API_URL}/api/movies`,
         {
           title: title,
           poster: poster,
@@ -39,11 +41,13 @@ function CreateMovie() {
           },
         }
       );
-      console.log(response.data);
+console.log("heree", response);
+      navigate(`/movies/${response.data._id}`);
+      
+
     } catch (error) {
       console.log(error);
     }
-    navigate("/movies");
   };
 
   return (
@@ -72,8 +76,15 @@ function CreateMovie() {
         />
 
         <label>Year:</label>
-        <YearDropdown />
-        
+        {/* <YearDropdown onChange={(e) => setYear(e.target.value)}/> */}
+        <input
+          type="number"
+          name="year"
+          placeholder="Insert Year"
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
+        />
+
         <label>Cast:</label>
         <input
           type="text"

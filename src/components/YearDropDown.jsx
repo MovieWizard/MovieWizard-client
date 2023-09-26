@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-function YearDropdown() {
+function YearDropdown(props) {
   const [years, setYears] = useState([]);
+
+  const  {onChange} = props
   
   useEffect(() => {
     const currentYear = new Date().getFullYear();
@@ -11,7 +13,7 @@ function YearDropdown() {
 
   return (
     <div>
-      <select name="year">
+      <select name="year" onChange={onChange}>
         <option value="">Select Year</option>
         {years.map((year) => (
           <option key={year} value={year}>
