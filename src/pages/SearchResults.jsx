@@ -4,7 +4,7 @@ import axios from "axios";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import Movie from "../components/Movie";
 
-const apiUrl = "http://localhost:5005";
+
 function SearchResults() {
   const [search, setSearch] = useState([]);
   const [searchParams] = useSearchParams(window.location.search);
@@ -18,7 +18,7 @@ function SearchResults() {
         return;
     }
     axios
-      .get(`${apiUrl}/api/search?q=${searchParamResult}`)
+      .get(`${import.meta.env.API_URL}/api/search?q=${searchParamResult}`)
       .then((res) => {
         setSearch(res.data);
       })

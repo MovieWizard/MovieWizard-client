@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Modal from "../components/Modal";
 
-const apiUrl = "http://localhost:5005";
 
 function MoodMovieLists() {
   const storedToken = localStorage.getItem("authToken");
@@ -15,7 +14,7 @@ function MoodMovieLists() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/api/mood-lists`, {
+      .get(`${import.meta.env.API_URL}/api/mood-lists`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

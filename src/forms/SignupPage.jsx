@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function SignupPage(props) {
-  const API_URL = "http://localhost:5005";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +20,7 @@ function SignupPage(props) {
 
     const requestBody = { email, password, name };
     axios
-      .post(`${API_URL}/auth/signup`, requestBody)
+      .post(`${import.meta.env.API_URL}/auth/signup`, requestBody)
       .then((response) => {
         const userData = response.data;
 

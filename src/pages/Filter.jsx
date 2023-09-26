@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import YearDropdown from "../components/YearDropDown";
 
-const apiUrl =  "http://localhost:5005"
 
 
 function Filter() {
@@ -14,7 +13,7 @@ const [filterResults, setFilterResults] = useState([])
 
 
 useEffect(() => {
-    axios.get(`${apiUrl}/filters`)
+    axios.get(`${import.meta.env.API_URL}/filters`)
     .then(res => res.json(res.data))
     .catch(e => console.log("error to get filter results", e))
 
