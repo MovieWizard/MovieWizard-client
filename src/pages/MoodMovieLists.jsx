@@ -54,7 +54,7 @@ function MoodMovieLists() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${apiUrl}/api/mood-lists`, newMood, {
+      .post(`${import.meta.env.VITE_API_URL}/api/mood-lists`, newMood, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => setIsSubmitted(!isSubmited), handleCloseModal())
