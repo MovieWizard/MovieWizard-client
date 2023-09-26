@@ -13,7 +13,7 @@ function YearDropdown(props) {
 
   return (
     <div>
-      <select name="year" onChange={onChange}>
+      <select name="year" onChange={(e) => {onChange(e)}}>
         <option value="">Select Year</option>
         {years.map((year) => (
           <option key={year} value={year}>

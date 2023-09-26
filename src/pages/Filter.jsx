@@ -2,74 +2,103 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import YearDropdown from "../components/YearDropDown";
-
+import Movie from "../components/Movie";
 
 
 function Filter() {
 
 const navigate = useNavigate()
 const [filterResults, setFilterResults] = useState([])
+const [rating, setRating] = useState()
+const [genre, setGenre] = useState("")
+const [year, setYear] = useState()
 
 
+const handleMovieClick = (movie) => {
+    navigate(`/movies/${movie._id}`);
+  };
 
-useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/filters`)
-    .then(res => res.json(res.data))
-    .catch(e => console.log("error to get filter results", e))
-
-})
     const handleSubmit = (e) => {
         e.preventDefault()
+        axios.get(`${import.meta.env.VITE_API_URL}/api/filters`, {
+            params: {
+                rating: rating,
+                genre: genre,
+                year: year,
+            }
+        })
+        .then(res => {
+            setFilterResults(res.data)
+            console.log(res);
+            
+        }
+            )
+        .catch(e => console.log("error to get filter results", e))
 
     }
 
     return (
+        <>
 
         <form onSubmit={handleSubmit}>
         <label> Rating: </label>  
-        <select>
-            <option value="">See All</option>
-            <option value="">1+</option>
-            <option value="">2+</option>
-            <option value="">3+</option>
-            <option value="">4+</option>
-            <option value="">5+</option>
-            <option value="">6+</option>
-            <option value="">7+</option>
-            <option value="">8+</option>
-            <option value="">9+</option>
-            <option value="">10</option>
+        <select onChange={(e) => {
+            console.log("hereee", e);
+            setRating(e.target.value)}}>
+            <option value="0">See All</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="5">5+</option>
+            <option value="6">6+</option>
+            <option value="7">7+</option>
+            <option value="8">8+</option>
+            <option value="9">9+</option>
+            <option value="10">10</option>
         </select>
 
         <label>Genre</label>
 
-        <select>
-            <option value="">Action</option>
-            <option value="">Adventure</option>
-            <option value="">Comedy</option>
-            <option value="">Drama</option>
-            <option value="">Fantasy</option>
-            <option value="">Horror</option>
-            <option value="">Mystery</option>
-            <option value="">Romance</option>
-            <option value="">Science Fiction</option>
-            <option value="">Thriller</option>
-            <option value="">Animation</option>
-            <option value="">Family</option>
-            <option value="">Crime</option>
-            <option value="">Documentary</option>
-            <option value="">History</option>
-            <option value="">Musical</option>
-            <option value="">War</option>
-            <option value="">Western</option>
+        <select onChange={(e) => {
+            setGenre(e.target.value)}}>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="horror">Horror</option>
+                <option value="mystery">Mystery</option>
+                <option value="romance">Romance</option>
+                <option value="science_fiction">Science Fiction</option>
+                <option value="thriller">Thriller</option>
+                <option value="animation">Animation</option>
+                <option value="family">Family</option>
+                <option value="crime">Crime</option>
+                <option value="documentary">Documentary</option>
+                <option value="history">History</option>
+                <option value="musical">Musical</option>
+                <option value="war">War</option>
+                <option value="western">Western</option>
         </select>
 
         <label>Year</label>
-        <YearDropdown />
+        <YearDropdown onChange={(e) => {
+            setYear(e.target.value)}}/>
             <button type="submit">Filter</button>
         </form>
+        <div>
+
+        {filterResults.map((e) => (
+         <section key={e._id} onClick={() => handleMovieClick(e)}>
+              <Movie {...e} />
+            </section>
+          ))}
+          </div>
+
+          </>
+)
         
-        )
          
 }
 
