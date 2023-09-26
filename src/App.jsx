@@ -13,7 +13,7 @@ import SearchResults from "./pages/SearchResults";
 import MoodMovieLists from "./pages/MoodMovieLists";
 import Profile from "./pages/ProfilePage";
 import Filter from "./pages/Filter";
-
+import EditMovie from "./pages/EditMovie";
 
 function App() {
   return (
@@ -21,13 +21,22 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/what-to-watch" element={<Filter/>}/>
+        <Route path="/what-to-watch" element={<Filter />} />
         <Route
           path="/create-movie"
           element={
             <IsPrivate>
               {" "}
               <CreateMovie />{" "}
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/edit-movie/:movieId"
+          element={
+            <IsPrivate>
+              {" "}
+              <EditMovie />{" "}
             </IsPrivate>
           }
         />
