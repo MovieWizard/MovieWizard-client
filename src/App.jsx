@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar";
 import MovieDetails from "./pages/MovieDetails";
 import SearchResults from "./pages/SearchResults";
 import MoodMovieLists from "./pages/MoodMovieLists";
+import MoodMovieListDetails from "./pages/MoodMovieListDetails";
 import Profile from "./pages/ProfilePage";
 import Filter from "./pages/Filter";
 import EditMovie from "./pages/EditMovie";
@@ -52,10 +53,19 @@ function App() {
         />
 
         <Route path="/search" element={<SearchResults />} />
-        <Route path="/mood-lists" element={<IsPrivate>
+        <Route
+          path="/mood-lists"
+          element={
+            <IsPrivate>
               {" "}
               <MoodMovieLists />{" "}
-            </IsPrivate>} />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/mood-lists/:moodListId"
+          element={<MoodMovieListDetails />}
+        ></Route>
       </Routes>
     </div>
   );
