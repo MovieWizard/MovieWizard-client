@@ -52,7 +52,10 @@ function App() {
         />
 
         <Route path="/search" element={<SearchResults />} />
-        <Route path="/mood-lists" element={<MoodMovieLists />} />
+        <Route path="/mood-lists" element={<IsPrivate>
+              {" "}
+              <MoodMovieLists />{" "}
+            </IsPrivate>} />
       </Routes>
     </div>
   );

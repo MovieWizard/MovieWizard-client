@@ -57,7 +57,10 @@ function SearchResults() {
           </section>
         ))
       )}
+      <button >Next</button>
+
     </div>
+    
   );
 }
 
