@@ -36,9 +36,14 @@ const handleMovieClick = (movie) => {
             
         }
             )
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         .catch(e => console.log("error to get filter results", e))
 
     }
+
 
     return (
         <>
