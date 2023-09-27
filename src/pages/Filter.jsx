@@ -41,6 +41,18 @@ function Filter() {
       .catch((e) => console.log("error to get filter results", e));
   };
 
+  const showRecommendMore = () => {
+    if (filterResults.length > 0) {
+      return (
+        <div className="btn-filterpage-container">
+          <button className="btn-form btn-recommend" onClick={handleSubmit}>
+            Recommend more
+          </button>
+        </div>
+      );
+    }
+  };
+
   return (
     <>
       <div className="container-form">
@@ -112,11 +124,7 @@ function Filter() {
           </section>
         ))}
       </div>
-      <div className="btn-filterpage-container">
-        <button className="btn-form btn-recommend" onClick={handleSubmit}>
-          Recommend more
-        </button>
-      </div>
+      {showRecommendMore()}
     </>
   );
 }
