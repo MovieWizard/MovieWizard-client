@@ -14,6 +14,7 @@ const [genre, setGenre] = useState("")
 const [year, setYear] = useState()
 
 
+
 const handleMovieClick = (movie) => {
     navigate(`/movies/${movie._id}`);
   };
@@ -25,8 +26,10 @@ const handleMovieClick = (movie) => {
                 rating: rating,
                 genre: genre,
                 year: year,
-            }
-        })
+                lastMovieId: filterResults.length === 0 
+                ? null 
+                : filterResults[filterResults.length - 1]._id
+        }})
         .then(res => {
             setFilterResults(res.data)
             console.log(res);
@@ -95,7 +98,7 @@ const handleMovieClick = (movie) => {
             </section>
           ))}
           </div>
-
+        <button onClick={handleSubmit}>Recommend more</button>
           </>
 )
         
