@@ -77,7 +77,7 @@ function MovieDetails() {
   };
 
   const handleToggleFavourite = () => {
-    setShowModal(true);
+    isFavourite ? removeFromList() : setShowModal(true);
   };
   const handleCloseModal = () => {
     setShowModal(false);
@@ -85,9 +85,16 @@ function MovieDetails() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    addToList();
+  };
+
+  const addToList = () => {
     axios
       .put(
-        `${import.meta.env.VITE_API_URL}/api/mood-lists/${selectedMoodList}`,
+        `${
+          import.meta.env.VITE_API_URL
+        }/api/mood-lists/${selectedMoodList}/add`,
         {
           movieId: movieId,
         },
@@ -98,6 +105,28 @@ function MovieDetails() {
       .then((response) => {
         handleCloseModal(response);
         setIsFavorite(true);
+      })
+      .catch((e) => {
+        console.log("Error updating mood list", e);
+      });
+  };
+
+  const removeFromList = () => {
+    axios
+      .put(
+        `${
+          import.meta.env.VITE_API_URL
+        }/api/mood-lists/${selectedMoodList}/remove`,
+        {
+          movieId: movieId,
+        },
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
+      .then((response) => {
+        handleCloseModal(response);
+        setIsFavorite(false);
       })
       .catch((e) => {
         console.log("Error updating mood list", e);
