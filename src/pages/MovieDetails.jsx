@@ -50,6 +50,15 @@ function MovieDetails() {
       });
   }, []);
 
+  useEffect(() => {
+    lists.forEach((list) => {
+      if (list.movies.includes(movieId)) {
+        setIsFavorite(true);
+        return;
+      }
+    });
+  }, [lists]);
+
   const handleDelete = () => {
     if (isOwner) {
       axios
@@ -68,7 +77,6 @@ function MovieDetails() {
   };
 
   const handleToggleFavourite = () => {
-    setIsFavorite((prevState) => !prevState);
     setShowModal(true);
   };
   const handleCloseModal = () => {
@@ -89,6 +97,7 @@ function MovieDetails() {
       )
       .then((response) => {
         handleCloseModal(response);
+        setIsFavorite(true);
       })
       .catch((e) => {
         console.log("Error updating mood list", e);
