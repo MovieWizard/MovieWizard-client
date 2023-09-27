@@ -1,45 +1,4 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-} */
-
-/* .read-the-docs {
-  color: #888;
-} */
 
 *>*{
   box-sizing: border-box;
@@ -162,3 +121,50 @@ form {
   gap: 4px;
   
 }
+
+/*Movie Component Style*/
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 100px;
+  margin-top: 70px;;
+  align-items: flex-start;
+}
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+}
+
+.movie-image:hover{
+  box-shadow: 0px 0px 8px 4px #FFDAB9;
+  
+}
+.movie-name:hover{
+  text-shadow: 0 0 20px #FFDAB9;
+}
+
+.movie-name {
+  color: #F8F8FF;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  max-width: 300px;
+  font-size: 24px;
+}
+.movie-image  {
+  height: 450px;
+  width: 300px;
+}
+

@@ -2,10 +2,10 @@ import React from "react";
 
 function Movie(props) {
   return (
-    <>
-      <h3>{props.title}</h3>
-      <img src={props.poster} alt="movie-image" />
-    </>
+    <div className="movie-card">
+      <h3 className="movie-name">{props.title}</h3>
+      <img className="movie-image" src={props.poster} alt="movie-image" />
+    </div>
   );
   
 }
