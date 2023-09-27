@@ -4,7 +4,6 @@ import axios from "axios";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import Movie from "../components/Movie";
 
-
 function SearchResults() {
   const [search, setSearch] = useState([]);
   const [searchParams] = useSearchParams(window.location.search);
@@ -14,8 +13,8 @@ function SearchResults() {
   useEffect(() => {
     // Clear search results if it's just white spaces
     if (searchParamResult.trim() === "") {
-        setSearch([]); 
-        return;
+      setSearch([]);
+      return;
     }
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/search?q=${searchParamResult}`)
@@ -34,20 +33,24 @@ function SearchResults() {
     navigate(`/create-movie`);
   };
 
-
   const SearchResults = () => {
     if (SearchResults === null) {
       return <p>Loading Results...</p>;
     }
-
   };
 
   return (
-    <div>
+    <div className="container">
       {search.length === 0 ? (
         <>
           <p>No results found.</p>
-          <button onClick={() => {navigate('/')}}>Search again</button>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Search again
+          </button>
           <button onClick={() => handleCreateClick()}>Add new Movie</button>
         </>
       ) : (
@@ -57,10 +60,8 @@ function SearchResults() {
           </section>
         ))
       )}
-      <button >Next</button>
-
+      <button>Next</button>
     </div>
-    
   );
 }
 
