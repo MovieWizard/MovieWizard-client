@@ -18,7 +18,7 @@ function IsPrivate({ children }) {
   if (!isLoggedIn) {
     return (
       <>
-        <button onClick={openLoginModal}>Log in to create a movie</button>
+        <button onClick={openLoginModal}>Please Login</button>
         {isLoginModalOpen && (
           <ModalV2 isOpen={isLoginModalOpen} onClose={closeLoginModal}>
             <LoginPage />
