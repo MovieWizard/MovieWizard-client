@@ -1,19 +1,13 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import YearDropdown from "../components/YearDropDown";
 import Movie from "../components/Movie";
 
 function Filter() {
-  const navigate = useNavigate();
   const [filterResults, setFilterResults] = useState([]);
   const [rating, setRating] = useState();
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState();
-
-  const handleMovieClick = (movie) => {
-    navigate(`/movies/${movie._id}`);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,12 +25,10 @@ function Filter() {
       })
       .then((res) => {
         setFilterResults(res.data);
-        console.log(res);
-      });
-    window
-      .scrollTo({
-        top: 0,
-        behavior: "smooth",
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       })
       .catch((e) => console.log("error to get filter results", e));
   };
@@ -60,7 +52,6 @@ function Filter() {
           <label> Rating </label>
           <select
             onChange={(e) => {
-              console.log("hereee", e);
               setRating(e.target.value);
             }}
           >
@@ -119,7 +110,7 @@ function Filter() {
       </div>
       <div className="filter-container">
         {filterResults.map((e) => (
-          <section key={e._id} onClick={() => handleMovieClick(e)}>
+          <section key={e._id}>
             <Movie {...e} />
           </section>
         ))}
