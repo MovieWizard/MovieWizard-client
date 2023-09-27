@@ -14,6 +14,7 @@ function MovieDetails() {
   const [isFavourite, setIsFavorite] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedMoodList, setSelectedMoodList] = useState("");
+  const [movieMoodList, setMovieMoodList] = useState("");
   const [lists, setLists] = useState([]);
   const storedToken = localStorage.getItem("authToken");
 
@@ -54,6 +55,7 @@ function MovieDetails() {
     lists.forEach((list) => {
       if (list.movies.includes(movieId)) {
         setIsFavorite(true);
+        setMovieMoodList(list._id);
         return;
       }
     });
@@ -105,6 +107,7 @@ function MovieDetails() {
       .then((response) => {
         handleCloseModal(response);
         setIsFavorite(true);
+        setMovieMoodList(selectedMoodList);
       })
       .catch((e) => {
         console.log("Error updating mood list", e);
@@ -116,7 +119,7 @@ function MovieDetails() {
       .put(
         `${
           import.meta.env.VITE_API_URL
-        }/api/mood-lists/${selectedMoodList}/remove`,
+        }/api/mood-lists/${movieMoodList}/remove`,
         {
           movieId: movieId,
         },
