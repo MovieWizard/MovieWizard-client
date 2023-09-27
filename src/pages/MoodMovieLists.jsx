@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Modal from "../components/Modal";
 
-
 function MoodMovieLists() {
   const storedToken = localStorage.getItem("authToken");
 
@@ -73,14 +72,24 @@ function MoodMovieLists() {
 
     return lists.map((e) => {
       return (
-        <section key={e._id} className="card" onClick={() => handleClick(e)}>
-          <p>{e.title}</p>
+        <section
+          key={e._id}
+          className="playlist"
+          onClick={() => handleClick(e)}
+        >
+          <h3 className="playlist-name">{e.title}</h3>
         </section>
       );
     });
   };
   return (
     <>
+      <h1 className="page-title">Mood Lists:</h1>
+      <div className="btn-filterpage-container">
+        <button className="btn-form" onClick={handleOpenModal}>
+          Add new Mood List
+        </button>
+      </div>
       {moodLists()}
 
       <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
@@ -98,7 +107,6 @@ function MoodMovieLists() {
           <button type="submit">Create</button>
         </form>
       </Modal>
-      <button onClick={handleOpenModal}>Add new Mood List</button>
     </>
   );
 }

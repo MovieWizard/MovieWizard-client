@@ -18,8 +18,6 @@ function CreateMovie() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
-
     try {
       const token = localStorage.getItem("authToken");
       console.log(token);
@@ -41,10 +39,8 @@ function CreateMovie() {
           },
         }
       );
-console.log("heree", response);
+      console.log("heree", response);
       navigate(`/movies/${response.data._id}`);
-      
-
     } catch (error) {
       console.log(error);
     }
@@ -52,86 +48,88 @@ console.log("heree", response);
 
   return (
     <>
-      <h1>Create a Movie</h1>
+      <h1 className="page-title">Create a Movie</h1>
+      <div className="container-form">
+        <form className="create-form" onSubmit={handleSubmit}>
+          <label>Title:</label>
+          <input
+            type="text"
+            name="title"
+            placeholder="Enter Title"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
 
-      <form onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          placeholder="Enter Title"
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
+          <label>Image:</label>
+          <input
+            type="text"
+            name="poster"
+            placeholder="Insert Image"
+            value={poster}
+            onChange={(e) => setPoster(e.target.value)}
+          />
 
-        <label>Image:</label>
-        <input
-          type="text"
-          name="poster"
-          placeholder="Insert Image"
-          value={poster}
-          onChange={(e) => setPoster(e.target.value)}
-        />
+          <label>Year:</label>
+          {/* <YearDropdown onChange={(e) => setYear(e.target.value)}/> */}
+          <input
+            type="number"
+            name="year"
+            placeholder="Insert Year"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+          />
 
-        <label>Year:</label>
-        {/* <YearDropdown onChange={(e) => setYear(e.target.value)}/> */}
-        <input
-          type="number"
-          name="year"
-          placeholder="Insert Year"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-        />
+          <label>Cast:</label>
+          <input
+            type="text"
+            name="actors"
+            placeholder="Insert Cast"
+            value={actors}
+            onChange={(e) => setActors(e.target.value)}
+          />
 
-        <label>Cast:</label>
-        <input
-          type="text"
-          name="actors"
-          placeholder="Insert Cast"
-          value={actors}
-          onChange={(e) => setActors(e.target.value)}
-        />
+          <label>Genre:</label>
+          <input
+            type="text"
+            name="genre"
+            placeholder="Insert Genre"
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+          />
 
-        <label>Genre:</label>
-        <input
-          type="text"
-          name="genre"
-          placeholder="Insert Genre"
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
-        />
+          <label>Plot:</label>
+          <input
+            type="text"
+            name="plot"
+            placeholder="Type Plot"
+            value={plot}
+            onChange={(e) => setPlot(e.target.value)}
+          />
 
-        <label>Plot:</label>
-        <input
-          type="text"
-          name="plot"
-          placeholder="Type Plot"
-          value={plot}
-          onChange={(e) => setPlot(e.target.value)}
-        />
+          <label>IMDB Rating:</label>
+          <input
+            type="number"
+            name="imdbRating"
+            placeholder="Insert Rating"
+            value={imdbRating}
+            onChange={(e) => setImdbRating(e.target.value)}
+          />
 
-        <label>IMDB Rating:</label>
-        <input
-          type="number"
-          name="imdbRating"
-          placeholder="Insert Rating"
-          value={imdbRating}
-          onChange={(e) => setImdbRating(e.target.value)}
-        />
-
-        <label>Language:</label>
-        <input
-          type="text"
-          name="language"
-          placeholder="Insert Language"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-        />
-
-        <button>Create</button>
-      </form>
+          <label>Language:</label>
+          <input
+            type="text"
+            name="language"
+            placeholder="Insert Language"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          />
+          <div className="btn-filterpage-container">
+            <button className="btn-form">Create</button>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

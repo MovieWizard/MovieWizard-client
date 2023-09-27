@@ -43,9 +43,9 @@ function Filter() {
 
   return (
     <>
-      <div className="containe-filter-form">
+      <div className="container-form">
         <form className="filter-form" onSubmit={handleSubmit}>
-          <label className="filter-form-label"> Rating </label>
+          <label> Rating </label>
           <select
             onChange={(e) => {
               console.log("hereee", e);
@@ -65,7 +65,7 @@ function Filter() {
             <option value="10">10</option>
           </select>
 
-          <label className="filter-form-label">Genre</label>
+          <label>Genre</label>
 
           <select
             onChange={(e) => {
@@ -92,15 +92,14 @@ function Filter() {
             <option value="western">Western</option>
           </select>
 
-          <label className="filter-form-label">Year</label>
+          <label>Year</label>
           <YearDropdown
             onChange={(e) => {
               setYear(e.target.value);
             }}
           />
-          <br />
           <div className="btn-filterpage-container">
-            <button className="btn-filterpage" type="submit">
+            <button className="btn-form" type="submit">
               Filter
             </button>
           </div>
@@ -114,7 +113,7 @@ function Filter() {
         ))}
       </div>
       <div className="btn-filterpage-container">
-        <button className="btn-filterpage btn-recommend" onClick={handleSubmit}>
+        <button className="btn-form btn-recommend" onClick={handleSubmit}>
           Recommend more
         </button>
       </div>
