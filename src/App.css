@@ -270,22 +270,35 @@ option{
   padding: 2rem;
 }
 
-.user-movies {
+.user-movies-title {
   font-size: 30px;
   color: #FFFFE0;
   padding: 2rem;
 }
 
+.user-movies-list {
+display: flex;
+flex-wrap: wrap;
+gap: 150px;
+}
+
+
+
 /***************/
 /*NavBar style:*/
 /***************/
+
+.nav-group {
+  display: flex;
+  align-items: center;
+}
 
 .nav-bar {
   color: #F8F8FF;
   text-align: center;
   font-size: 18px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .nav-bar a {

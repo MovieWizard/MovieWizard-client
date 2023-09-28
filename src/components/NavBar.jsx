@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import { ModalV2 } from "./Modal-v2";
 import LoginPage from "../forms/LoginPage";
 import SignupPage from "../forms/SignupPage";
+import homeImg from "../assets/HomeLogo.png";
 
 function NavBar() {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
@@ -13,7 +14,9 @@ function NavBar() {
   return (
     <nav className="nav-bar">
       <div className="nav-group">
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">
+          <img src={homeImg} alt="" />
+        </NavLink>
         <NavLink to="/what-to-watch">What to watch</NavLink>
         <NavLink to="/create-movie">Create a Movie</NavLink>
         <NavLink className="space" to="/mood-lists">

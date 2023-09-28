@@ -1,3 +1,5 @@
+import moviewizardImg from "../assets/movie-wizard.png";
+
 function HomePage() {
   return (
     <>
@@ -13,7 +15,7 @@ function HomePage() {
         </form>
       </div>
       <div className="home-img-container">
-        <img className="home-img" src="./public/movie-wizard.png" alt="" />
+        <img className="home-img" src={moviewizardImg} alt="" />
       </div>
     </>
   );

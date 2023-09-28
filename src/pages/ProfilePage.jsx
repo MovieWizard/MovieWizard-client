@@ -33,18 +33,19 @@ function Profile() {
         {userMovies.length > 0 && (
           <>
             <h3 className="user-movies-title">📽️ Your Movies 🍿</h3>
-
-            <div className="user-movies-list">
-              {userMovies.map((movie) => {
-                return (
-                  <Link
-                    to={`/movies/${movie._id}`}
-                    className="user-movies-list-item"
-                  >
-                    <Movie {...movie} />
-                  </Link>
-                );
-              })}
+            <div className="user-movies-container">
+              <div className="user-movies-list">
+                {userMovies.map((movie) => {
+                  return (
+                    <Link
+                      to={`/movies/${movie._id}`}
+                      className="user-movies-list-item"
+                    >
+                      <Movie {...movie} />
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </>
         )}
