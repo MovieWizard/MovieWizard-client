@@ -19,54 +19,56 @@ import EditMovie from "./pages/EditMovie";
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/what-to-watch" element={<Filter />} />
-        <Route
-          path="/create-movie"
-          element={
-            <IsPrivate>
-              {" "}
-              <CreateMovie />{" "}
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/edit-movie/:movieId"
-          element={
-            <IsPrivate>
-              {" "}
-              <EditMovie />{" "}
-            </IsPrivate>
-          }
-        />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
+      <div className="container">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/what-to-watch" element={<Filter />} />
+          <Route
+            path="/create-movie"
+            element={
+              <IsPrivate>
+                {" "}
+                <CreateMovie />{" "}
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/edit-movie/:movieId"
+            element={
+              <IsPrivate>
+                {" "}
+                <EditMovie />{" "}
+              </IsPrivate>
+            }
+          />
+          <Route path="/movies/:movieId" element={<MovieDetails />} />
 
-        <Route
-          path="/profile"
-          element={
-            <IsPrivate>
-              <Profile />
-            </IsPrivate>
-          }
-        />
+          <Route
+            path="/profile"
+            element={
+              <IsPrivate>
+                <Profile />
+              </IsPrivate>
+            }
+          />
 
-        <Route path="/search" element={<SearchResults />} />
-        <Route
-          path="/mood-lists"
-          element={
-            <IsPrivate>
-              {" "}
-              <MoodMovieLists />{" "}
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/mood-lists/:moodListId"
-          element={<MoodMovieListDetails />}
-        ></Route>
-      </Routes>
+          <Route path="/search" element={<SearchResults />} />
+          <Route
+            path="/mood-lists"
+            element={
+              <IsPrivate>
+                {" "}
+                <MoodMovieLists />{" "}
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/mood-lists/:moodListId"
+            element={<MoodMovieListDetails />}
+          ></Route>
+        </Routes>
+      </div>
     </div>
   );
 }

@@ -72,6 +72,7 @@ function MoodMovieLists() {
 
     return lists.map((e) => {
       return (
+        <div className="playlist-box">
         <section
           key={e._id}
           className="playlist"
@@ -79,6 +80,7 @@ function MoodMovieLists() {
         >
           <h3 className="playlist-name">{e.title}</h3>
         </section>
+        </div>
       );
     });
   };
