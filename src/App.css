@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'ConnectTheDots';
+  src: local('ConnectTheDots'),
+    url(./src/fonts/ConnectTheDots-9Y472.woff) format('woff');
+}
 
 p{
   color: #F8F8FF;
@@ -7,18 +12,15 @@ p{
   box-sizing: border-box;
 }
 
-.nav-bar {
-  text-align: center;
-  /* margin: 0; */
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 32px;
+  max-width: 1440px;
 }
 
-a {
-  padding-left: 10px;
-}
 
-.space {
-  margin-right: 50px;
-}
 .Modal {
   position: absolute;
   top: 200px;
@@ -42,7 +44,9 @@ a {
   color: black;
 }
 
-/* ModalV2 styling */
+/******************/
+/* ModalV2 styling*/
+/******************/
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -116,20 +120,23 @@ form {
 }
 
 
-
+/************************/
 /*Search results styles:*/
-.container {
+/************************/
+.movie-list {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-content: space-between;
-  gap: 100px;
+  gap: 16px;
   margin-top: 70px;;
   align-items: flex-start;
 }
 
+/************************/
 /*Filter results styles:*/
+/************************/
 
 .filter-container{
   display: flex;
@@ -147,17 +154,18 @@ form {
 
 .btn-form{
   width: 200px;
-  margin-top: 20px;;
+  margin-top: 20px;
 }
 
 .btn-recommend{
-  margin-bottom: 100px;;
+  margin-bottom: 100px;
 }
 
 .container-form{
   display: flex;
   justify-content: center;
 }
+
 .filter-form {
   width: 300px; 
   padding: 20px;
@@ -168,7 +176,7 @@ label{
   color: #F8F8FF;
   text-align: center;
   font-weight: bold;
-  font-size: 20px;;
+  font-size: 20px;
 }
 
 option{
@@ -176,26 +184,17 @@ option{
 }
 
 
-
+/***********************/
 /*Movie Component Style*/
+/***********************/
 .movie-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-}
-
-.movie-card:hover {
-  transform: scale(1.1);
-}
-
-.movie-image:hover{
-  box-shadow: 0px 0px 8px 4px #FFDAB9;
-  
-}
-.movie-name:hover{
-  text-shadow: 0 0 20px #FFDAB9;
+  transition: transform 200ms;
+  width: fit-content;
+  align-self: center;
 }
 
 .movie-name {
@@ -206,13 +205,30 @@ option{
   height: 70px;
   max-width: 300px;
   font-size: 24px;
+  transition: box-shadow 200ms;
 }
 .movie-image  {
   height: 450px;
   width: 300px;
+  transition: box-shadow 200ms;
 }
 
+.movie-card:not(.hover-disabled):hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.movie-card:not(.hover-disabled):hover .movie-image{
+  box-shadow: 0px 0px 8px 4px #FFDAB9;
+  
+}
+.movie-card:not(.hover-disabled):hover .movie-name{
+  text-shadow: 0 0 20px #FFDAB9;
+}
+
+/*******************/
 /*Create Movie Page*/
+/*******************/
 .page-title {
   color: #F8F8FF;
   text-align: center;
@@ -224,7 +240,9 @@ option{
   padding: 20px; 
 }
 
+/*****************/
 /* Playlit style:*/
+/*****************/
 .playlist{
   color: #F8F8FF;
   font-weight: bolder;
@@ -243,7 +261,9 @@ option{
   text-align: center;
 }
 
+/****************/
 /*Profile style:*/
+/****************/
 .welcome {
   color: 	#FFFFE0;
   text-shadow: 0 0 20px 	#F0E68C;
@@ -254,4 +274,89 @@ option{
   font-size: 30px;
   color: #FFFFE0;
   padding: 2rem;
+}
+
+/***************/
+/*NavBar style:*/
+/***************/
+
+.nav-bar {
+  color: #F8F8FF;
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-bar a {
+  padding-bottom: 4px;
+  transition: border-bottom 150ms;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-bar a:hover {
+  color: initial;
+  border-bottom: 1px solid white;
+
+}
+
+.nav-bar a:not(:first-child) {
+  margin-left: 24px;
+}
+
+
+.btn-session {
+  margin: 3px;
+  height: 30px;
+  padding: 5px;
+  font-size: 12px;
+  width: 60px;
+}
+
+.btn-session-container{
+  display: flex;
+  justify-content: end;
+  
+}
+
+/*****************/
+/*HomePage style:*/
+/*****************/
+
+.home-img-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.home-img{
+  margin-left: 80px;
+}
+
+.container-search{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+
+.search-bar{
+  width: 70%;
+  height: 20px;
+  padding: 20px;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-search {
+   width: 250px;
+}
+
+.app-name{
+  color: #FFDAB9;
+  font-family: ConnectTheDots;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 100px;
+  text-shadow: 0 0 20px 	#F0E68C
 }

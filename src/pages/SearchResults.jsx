@@ -40,7 +40,7 @@ function SearchResults() {
   };
 
   return (
-    <div className="container">
+    <div className="movie-list">
       {search.length === 0 ? (
         <>
           <p>No results found.</p>
@@ -55,9 +55,9 @@ function SearchResults() {
         </>
       ) : (
         search.map((e) => (
-          <section key={e._id} onClick={() => handleClick(e)}>
+          <div key={e._id} onClick={() => handleClick(e)}>
             <Movie {...e} />
-          </section>
+          </div>
         ))
       )}
       <button>Next</button>

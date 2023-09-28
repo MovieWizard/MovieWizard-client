@@ -2,12 +2,11 @@ import React from "react";
 
 function Movie(props) {
   return (
-    <div className="movie-card">
+    <div className={`movie-card ${props.disableHover ? "hover-disabled" : ""}`}>
       <h3 className="movie-name">{props.title}</h3>
       <img className="movie-image" src={props.poster} alt="movie-image" />
     </div>
   );
-  
 }
 
 export default Movie;
