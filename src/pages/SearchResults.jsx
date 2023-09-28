@@ -60,7 +60,6 @@ function SearchResults() {
           </div>
         ))
       )}
-      <button>Next</button>
     </div>
   );
 }
