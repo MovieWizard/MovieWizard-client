@@ -101,7 +101,7 @@ function MoodMovieLists() {
               value={newMood.title || ""}
               name="title"
               type="text"
-              placeholder="Enter mood list name"
+              placeholder="What's the mood? ex. Watch when feeling Happy"
               onChange={handleChange}
             />
           </label>
