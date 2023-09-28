@@ -12,6 +12,7 @@ function CreateMovie() {
   const [plot, setPlot] = useState("");
   const [imdbRating, setImdbRating] = useState("");
   const [language, setLanguage] = useState("");
+  const [videoid, setVideoid] = useState("");
 
   const navigate = useNavigate();
 
@@ -32,6 +33,7 @@ function CreateMovie() {
           plot: plot,
           imdbRating: imdbRating,
           language: language,
+          videoid: videoid,
         },
         {
           headers: {
@@ -72,7 +74,7 @@ function CreateMovie() {
           />
 
           <label>Year:</label>
-          {/* <YearDropdown onChange={(e) => setYear(e.target.value)}/> */}
+          {/* <YearDropdown onChange={(e) => setYear(e.target.value)} /> */}
           <input
             type="number"
             name="year"
@@ -124,6 +126,14 @@ function CreateMovie() {
             placeholder="Insert Language"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
+          />
+          <label>Youtube Trailer ID:</label>
+          <input
+            type="text"
+            name="videoid"
+            placeholder="Insert youtube video id"
+            value={videoid}
+            onChange={(e) => setVideoid(e.target.value)}
           />
           <div className="btn-filterpage-container">
             <button className="btn-form">Create</button>
