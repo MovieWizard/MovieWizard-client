@@ -44,7 +44,8 @@ function CreateMovie() {
       console.log("heree", response);
       navigate(`/movies/${response.data._id}`);
     } catch (error) {
-      console.log(error);
+      console.log("test", error);
+      alert(error.response.data.message);
     }
   };
 
