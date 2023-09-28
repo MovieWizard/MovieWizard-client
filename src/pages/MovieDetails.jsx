@@ -137,6 +137,45 @@ function MovieDetails() {
       });
   };
 
+  const handleShowLists = () => {
+    if (lists.length === 0) {
+      return (
+        <>
+          <p>No lists found</p>
+          <button
+            onClick={() => {
+              navigate("/mood-lists");
+            }}
+          >
+            Add new Mood List
+          </button>
+        </>
+      );
+    } else {
+      return (
+        <form onSubmit={handleSubmit}>
+          <div className="list-options">
+            {lists.map((list) => (
+              <label key={list._id}>
+                <input
+                  onChange={(e) => setSelectedMoodList(e.target.value)}
+                  type="radio"
+                  value={list._id}
+                  name="list"
+                />{" "}
+                {list.title}
+              </label>
+            ))}
+          </div>
+          <div className="btn-filterpage-container">
+            <button className="btn-form" type="submit">
+              Add
+            </button>
+          </div>
+        </form>
+      );
+    }
+  };
   return (
     <>
       <div className="movie-details-title-image">
@@ -185,27 +224,7 @@ function MovieDetails() {
       </div>
       <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
         <h2 className="modal-name">Choose a Mood List to add this movie:</h2>
-
-        <form onSubmit={handleSubmit}>
-          <div className="list-options">
-            {lists.map((list) => (
-              <label key={list._id}>
-                <input
-                  onChange={(e) => setSelectedMoodList(e.target.value)}
-                  type="radio"
-                  value={list._id}
-                  name="list"
-                />{" "}
-                {list.title}
-              </label>
-            ))}
-          </div>
-          <div className="btn-filterpage-container">
-            <button className="btn-form" type="submit">
-              Add
-            </button>
-          </div>
-        </form>
+        {handleShowLists()}
       </Modal>
     </>
   );
