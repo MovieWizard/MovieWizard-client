@@ -20,6 +20,10 @@ p{
   max-width: 1440px;
 }
 
+button {
+  color: #F8F8FF;
+}
+
 /******************/
 /* ModalV2 styling*/
 /******************/
@@ -278,13 +282,14 @@ gap: 150px;
 }
 
 .nav-bar a {
+  color: #F8F8FF;
   padding-bottom: 4px;
   transition: border-bottom 150ms;
   border-bottom: 1px solid transparent;
 }
 
 .nav-bar a:hover {
-  color: initial;
+  color: #F8F8FF;
   border-bottom: 1px solid white;
 
 }
@@ -300,6 +305,7 @@ gap: 150px;
   padding: 5px;
   font-size: 12px;
   width: 60px;
+  color: #F8F8FF;
 }
 
 .btn-session-container{
@@ -409,4 +415,5 @@ text-align: center;
 .btn-please-login{
 margin-top: 150px;
 font-size: 20px;
+color: #F8F8FF;
 }
