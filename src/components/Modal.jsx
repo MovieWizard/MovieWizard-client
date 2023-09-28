@@ -5,17 +5,21 @@ ReactModal.setAppElement("#root");
 
 function Modal(props) {
   return (
-    <>
+    <div className="modal-container">
       <ReactModal
         isOpen={props.showModal}
         onRequestClose={props.handleCloseModal}
-        //   className="Modal"
-        //   overlayClassName="Overlay"
+        className="modal"
       >
         {props.children}
-        <button onClick={props.handleCloseModal}>Cancel</button>
+        <div className="btn-filterpage-container">
+          <button className="btn-form" onClick={props.handleCloseModal}>
+            Cancel
+          </button>
+        </div>
+        <br />
       </ReactModal>
-    </>
+    </div>
   );
 }
 

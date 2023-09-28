@@ -139,50 +139,54 @@ function MovieDetails() {
 
   return (
     <>
-      {isOwner && (
-        <div>
-          <button onClick={handleEdit}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
-      )}
-
       <div className="movie-details-container">
-        <button className="favorite-icon" onClick={handleToggleFavourite}>
-          {" "}
-          {/* <img src={added} /> */}
-          {isFavourite ? "Remove from Moodlist" : "Add to Moodlist"}
-        </button>
-      </div>
-
-      <Movie {...movieDetails} />
-      <h3>
-        Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} |
-        Language: {movieDetails.language} | Genre: {movieDetails.genre}
-      </h3>
-      <h4>Cast: {movieDetails.actors}</h4>
-      <p>Plot: {movieDetails.plot}</p>
-
-      <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
-        <div>
-          <h2>Choose a Mood List to add this movie:</h2>
-
-          <form onSubmit={handleSubmit}>
-            <div>
-              {lists.map((list) => (
-                <label key={list._id}>
-                  <input
-                    onChange={(e) => setSelectedMoodList(e.target.value)}
-                    type="radio"
-                    value={list._id}
-                    name="list"
-                  />{" "}
-                  {list.title}
-                </label>
-              ))}
-            </div>
-            <button type="submit">Add</button>
-          </form>
+        <Movie {...movieDetails} />
+        <div className="btn-filterpage-container">
+          <button className="favorite-icon" onClick={handleToggleFavourite}>
+            {isFavourite ? "Remove from Moodlist" : "Add to Moodlist"}
+          </button>
         </div>
+        <h3 className="movie-details-text">
+          Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} |
+          Language: {movieDetails.language} | Genre: {movieDetails.genre}
+        </h3>
+        <h4 className="movie-details-text">Cast: {movieDetails.actors}</h4>
+        <p className="movie-details-text">Plot: {movieDetails.plot}</p>
+
+        {isOwner && (
+          <div className="btn-edit-delete-container">
+            <button className="btn-form" onClick={handleEdit}>
+              Edit
+            </button>
+            <button className="btn-form" onClick={handleDelete}>
+              Delete
+            </button>
+          </div>
+        )}
+      </div>
+      <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
+        <h2 className="modal-name">Choose a Mood List to add this movie:</h2>
+
+        <form onSubmit={handleSubmit}>
+          <div className="list-options">
+            {lists.map((list) => (
+              <label key={list._id}>
+                <input
+                  onChange={(e) => setSelectedMoodList(e.target.value)}
+                  type="radio"
+                  value={list._id}
+                  name="list"
+                />{" "}
+                {list.title}
+              </label>
+            ))}
+          </div>
+          <div className="btn-filterpage-container">
+            <button className="btn-form" type="submit">
+              Add
+            </button>
+          </div>
+        </form>
       </Modal>
     </>
   );

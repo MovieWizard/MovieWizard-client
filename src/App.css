@@ -20,30 +20,6 @@ p{
   max-width: 1440px;
 }
 
-
-.Modal {
-  position: absolute;
-  top: 200px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  height: 150px;
-
-}
-
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}  
-
-
-.modal-font-color {
-  color: black;
-}
-
 /******************/
 /* ModalV2 styling*/
 /******************/
@@ -374,31 +350,10 @@ gap: 150px;
   text-shadow: 0 0 20px 	#F0E68C
 }
 
-
-/* ADD TO FAVOURITE STYLE */
-
-.movie-details-container {
-  position: relative;
-}
-
-
-/* .poster-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; 
-  align-items: flex-start; 
-  padding: 20px; 
-} */
-
 .favorite-icon {
-  background-color: #f44336; 
-  color: white;
+  margin-top: 50px;
+  background-color: #FFDAB9; 
+  color: #390505;
   padding: 5px; 
   border-radius: 5px; 
   cursor: pointer;
@@ -406,7 +361,52 @@ gap: 150px;
   text-align: center;
 }
 
-/* .favorite .favorite-icon {
-  background-color: #2196F3;
-} */
+.movie-details-text{
+color: #F8F8FF;
+text-align: center;
+}
 
+.btn-edit-delete-container{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+/**************/
+/*Modal Style:*/
+/**************/
+
+.modal{
+  background-color: #4f4e4e;
+}
+
+.modal-name {
+  color: #F8F8FF;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.list-options{
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+
+.create-moodlist-form{
+  width: 500px;
+  height: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-please-login-container{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-please-login{
+margin-top: 150px;
+font-size: 20px;
+}

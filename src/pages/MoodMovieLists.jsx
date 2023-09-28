@@ -93,18 +93,23 @@ function MoodMovieLists() {
       {moodLists()}
 
       <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
+        <h2 className="modal-name">Create Mood List</h2>
         <form onSubmit={handleSubmit}>
           <label>
             <input
+              className="create-moodlist-form"
               value={newMood.title || ""}
               name="title"
               type="text"
               placeholder="Enter mood list name"
               onChange={handleChange}
             />
-            <hr />
           </label>
-          <button type="submit">Create</button>
+          <div className="btn-filterpage-container">
+            <button className="btn-form" type="submit">
+              Create
+            </button>
+          </div>
         </form>
       </Modal>
     </>

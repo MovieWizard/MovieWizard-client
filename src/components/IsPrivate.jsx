@@ -18,7 +18,9 @@ function IsPrivate({ children }) {
   if (!isLoggedIn) {
     return (
       <>
-        <button onClick={openLoginModal}>Please Login</button>
+        <div className="btn-please-login-container">
+          <button className="btn-please-login" onClick={openLoginModal}>Please Login</button>
+        </div>
         {isLoginModalOpen && (
           <ModalV2 isOpen={isLoginModalOpen} onClose={closeLoginModal}>
             <LoginPage />
