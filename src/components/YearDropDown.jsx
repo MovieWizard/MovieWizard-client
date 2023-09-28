@@ -10,7 +10,7 @@ function YearDropdown(props) {
     const yearArray = Array.from(
       { length: currentYear - 1899 },
       (_, index) => 1900 + index
-    );
+    ).reverse();
     setYears(yearArray);
   }, []);
 
