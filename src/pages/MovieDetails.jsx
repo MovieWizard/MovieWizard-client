@@ -139,47 +139,50 @@ function MovieDetails() {
 
   return (
     <>
-      <div className="movie-details-container">
-        <div className="movie-details-title-image">
-          <Movie {...movieDetails} disableHover={true} />
+      <div className="movie-details-title-image">
+        <Movie {...movieDetails} disableHover={true} />
+      </div>
+
+      <div className="btn-filterpage-container">
+        <button className="favorite-icon" onClick={handleToggleFavourite}>
+          {isFavourite ? "Remove from Moodlist" : "Add to Moodlist"}
+        </button>
+      </div>
+      <div className="movie-details-and-trailer">
+        <div className="movie-details-box">
+          <h3 className="movie-details-text">
+            Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} |
+            Language: {movieDetails.language}
+          </h3>
+          <h3 className="movie-details-text"> Genre: {movieDetails.genre}</h3>
+          <h4 className="movie-details-text">Cast: {movieDetails.actors}</h4>
+          <p className="movie-details-text">Plot: {movieDetails.plot}</p>
+
+          {isOwner && (
+            <div className="btn-edit-delete-container">
+              <button className="btn-form" onClick={handleEdit}>
+                Edit
+              </button>
+              <button className="btn-form" onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+          )}
         </div>
 
-        <div className="btn-filterpage-container">
-          <button className="favorite-icon" onClick={handleToggleFavourite}>
-            {isFavourite ? "Remove from Moodlist" : "Add to Moodlist"}
-          </button>
-        </div>
-        <h3 className="movie-details-text">
-          Year: {movieDetails.year} | Rating: {movieDetails.imdbRating} |
-          Language: {movieDetails.language} | Genre: {movieDetails.genre}
-        </h3>
-        <h4 className="movie-details-text">Cast: {movieDetails.actors}</h4>
-        <p className="movie-details-text">Plot: {movieDetails.plot}</p>
-
-        {isOwner && (
-          <div className="btn-edit-delete-container">
-            <button className="btn-form" onClick={handleEdit}>
-              Edit
-            </button>
-            <button className="btn-form" onClick={handleDelete}>
-              Delete
-            </button>
+        {movieDetails.videoid && (
+          <div className="trailer">
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${movieDetails.videoid}`}
+              title="YouTube Video Player"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
           </div>
         )}
       </div>
-      {movieDetails.videoid && (
-        <div>
-          <h3>Trailer:</h3>
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${movieDetails.videoid}`}
-            title="YouTube Video Player"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-        </div>
-      )}
       <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
         <h2 className="modal-name">Choose a Mood List to add this movie:</h2>
 

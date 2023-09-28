@@ -482,7 +482,7 @@ gap: 150px;
 
 .movie-details-text{
 color: #F8F8FF;
-text-align: center;
+text-align:justify;
 }
 
 .btn-edit-delete-container{
@@ -540,3 +540,19 @@ margin-top: 150px;
 font-size: 20px;
 color: #F8F8FF;
 }
+
+
+.movie-details-and-trailer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.movie-details-box {
+  padding: 40px;
+}
+
+.trailer{
+  padding: 60px;
+}
+
