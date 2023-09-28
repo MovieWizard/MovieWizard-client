@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Movie from "../components/Movie";
 import { AuthContext } from "../context/auth.context";
 import Modal from "../components/Modal";
+// import added from "../images/added.png";
 
 function MovieDetails() {
   const navigate = useNavigate();
@@ -66,11 +67,11 @@ function MovieDetails() {
       axios
         .delete(`${import.meta.env.VITE_API_URL}/api/movies/${movieId}`, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${storedToken}`,
           },
         })
         .then(() => {
-          navigate("/movies");
+          navigate("/");
         })
         .catch((err) => console.log(err));
     } else {
@@ -147,7 +148,9 @@ function MovieDetails() {
 
       <div className="movie-details-container">
         <button className="favorite-icon" onClick={handleToggleFavourite}>
-          {isFavourite ? "Remove from Watchlist" : "Add to Watchlist"}
+          {" "}
+          {/* <img src={added} /> */}
+          {isFavourite ? "Remove from Moodlist" : "Add to Moodlist"}
         </button>
       </div>
 
