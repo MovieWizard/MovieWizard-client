@@ -140,7 +140,10 @@ function MovieDetails() {
   return (
     <>
       <div className="movie-details-container">
-        <Movie {...movieDetails} />
+        <div className="movie-details-title-image">
+          <Movie {...movieDetails} disableHover={true} />
+        </div>
+
         <div className="btn-filterpage-container">
           <button className="favorite-icon" onClick={handleToggleFavourite}>
             {isFavourite ? "Remove from Moodlist" : "Add to Moodlist"}

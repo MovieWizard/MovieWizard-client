@@ -169,6 +169,7 @@ option{
 /***********************/
 /*Movie Component Style*/
 /***********************/
+
 .movie-card {
   display: flex;
   flex-direction: column;
@@ -190,6 +191,7 @@ option{
   transition: box-shadow 200ms;
 }
 .movie-image  {
+  display: flex;
   height: 450px;
   width: 300px;
   transition: box-shadow 200ms;
@@ -470,6 +472,12 @@ gap: 150px;
   cursor: pointer;
   width: 200px;
   text-align: center;
+}
+
+.movie-details-title-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .movie-details-text{
