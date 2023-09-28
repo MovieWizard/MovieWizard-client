@@ -15,6 +15,7 @@ import MoodMovieListDetails from "./pages/MoodMovieListDetails";
 import Profile from "./pages/ProfilePage";
 import Filter from "./pages/Filter";
 import EditMovie from "./pages/EditMovie";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
             element={<MoodMovieListDetails />}
           ></Route>
         </Routes>
+        <Footer />
       </div>
     </div>
   );

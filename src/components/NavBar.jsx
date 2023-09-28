@@ -33,7 +33,7 @@ function NavBar() {
         <div className={`nav-menu ${isNavMenuOpen ? "open" : ""}`}>
           <div className="nav-group">
             <NavLink to="/what-to-watch">What to watch</NavLink>
-            <NavLink to="/create-movie">Create a Movie</NavLink>
+            <NavLink to="/create-movie">Add a Movie</NavLink>
             <NavLink className="space" to="/mood-lists">
               Mood Lists
             </NavLink>

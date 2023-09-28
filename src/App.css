@@ -1,7 +1,10 @@
 @font-face {
   font-family: 'ConnectTheDots';
   src: local('ConnectTheDots'),
-    url(./src/fonts/ConnectTheDots-9Y472.woff) format('woff');
+    url('./public/fonts/ConnectTheDots-9Y472.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 p{
@@ -570,6 +573,43 @@ color: #F8F8FF;
   .trailer{
     padding: 20px;
   }
-
 }
+
+.footer-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.copyright{
+  padding-right: 12px;
+}
+
+footer{
+  padding: 16px;
+  font-size: 12px;
+}
+
+footer a{
+  margin: 3px;
+  margin-top: 13px;
+  font-weight: normal;
+}
+
+.no-results{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.no-result-btns{
+  display: flex;
+  flex-direction: row;
+ justify-content: center;
+ gap: 10px;
+}
+
+
+
+
 

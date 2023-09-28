@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'ConnectTheDots';
+  src: local('ConnectTheDots'),
+    url('./public/fonts/ConnectTheDots-9Y472.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

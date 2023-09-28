@@ -40,27 +40,31 @@ function SearchResults() {
   };
 
   return (
-    <div className="movie-list">
+    <>
       {search.length === 0 ? (
-        <>
+        <div className="no-results">
           <p>No results found.</p>
-          <button
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            Search again
-          </button>
-          <button onClick={() => handleCreateClick()}>Add new Movie</button>
-        </>
+          <div className="no-result-btns">
+            <button
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Search again
+            </button>
+            <button onClick={() => handleCreateClick()}>Add new Movie</button>
+          </div>
+        </div>
       ) : (
         search.map((e) => (
-          <div key={e._id} onClick={() => handleClick(e)}>
-            <Movie {...e} />
+          <div className="movie-list">
+            <div key={e._id} onClick={() => handleClick(e)}>
+              <Movie {...e} />
+            </div>
           </div>
         ))
       )}
-    </div>
+    </>
   );
 }
 

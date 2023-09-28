@@ -51,7 +51,7 @@ function CreateMovie() {
 
   return (
     <>
-      <h1 className="page-title">Create a Movie</h1>
+      <h1 className="page-title">Add a Movie</h1>
       <div className="container-form">
         <form className="create-form" onSubmit={handleSubmit}>
           <label>Title:</label>
@@ -137,7 +137,7 @@ function CreateMovie() {
             onChange={(e) => setVideoid(e.target.value)}
           />
           <div className="btn-filterpage-container">
-            <button className="btn-form">Create</button>
+            <button className="btn-form">Add</button>
           </div>
         </form>
       </div>
