@@ -18,7 +18,7 @@ function ImageWithFallback({ src, alt }) {
     img.onerror = () => {
       setImageSrc(NoImage);
     };
-  }, [src]);
+  });
 
   return <img src={imageSrc} alt={alt} />;
 }
