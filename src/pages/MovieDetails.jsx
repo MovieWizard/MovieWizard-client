@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Movie from "../components/Movie";
 import { AuthContext } from "../context/auth.context";
 import Modal from "../components/Modal";
+
 // import added from "../images/added.png";
 
 function MovieDetails() {
@@ -25,7 +26,6 @@ function MovieDetails() {
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/movies/${movieId}`)
       .then((response) => {
-        console.log(response.data);
         setMovieDetails(response.data);
       })
       .catch((e) => {
@@ -164,6 +164,19 @@ function MovieDetails() {
           </div>
         )}
       </div>
+      {movieDetails.videoid && (
+        <div>
+          <h3>Trailer:</h3>
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${movieDetails.videoid}`}
+            title="YouTube Video Player"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
       <Modal showModal={showModal} handleCloseModal={handleCloseModal}>
         <h2 className="modal-name">Choose a Mood List to add this movie:</h2>
 
