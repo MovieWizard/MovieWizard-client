@@ -556,3 +556,20 @@ color: #F8F8FF;
   padding: 60px;
 }
 
+@media (max-width: 768px) {
+  .movie-details-and-trailer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  
+  .movie-details-box {
+    padding: 0px;
+  }
+  
+  .trailer{
+    padding: 20px;
+  }
+
+}
+
