@@ -1,15 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function SignupPage(props) {
-
+function SignupPage({ onSuccess }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
-  const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -21,15 +17,11 @@ function SignupPage(props) {
     const requestBody = { email, password, name };
     axios
       .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
-      .then((response) => {
-        const userData = response.data;
-
-        navigate("/login");
-      })
+      .then(() => onSuccess?.())
       .catch((err) => {
         if (err.response && err.response.data && err.response.data.message) {
           const errorDescription = err.response.data.message;
-          setErrorMessage;
+          setErrorMessage(errorDescription);
         } else {
           console.log(err);
           setErrorMessage("An error occurred. Please try again later.");
