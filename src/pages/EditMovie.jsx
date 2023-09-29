@@ -153,8 +153,9 @@ function EditMovie() {
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
           />
-
-          <button>Edit</button>
+          <div className="btn-filterpage-container">
+            <button>Edit</button>
+          </div>
         </form>
       </div>
     </>
