@@ -11,6 +11,7 @@ function EditMovie() {
   const [plot, setPlot] = useState("");
   const [imdbRating, setImdbRating] = useState("");
   const [language, setLanguage] = useState("");
+  const [videoid, setVideoid] = useState("");
 
   const navigate = useNavigate();
   const { movieId } = useParams();
@@ -152,6 +153,14 @@ function EditMovie() {
             placeholder="Insert Language"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
+          />
+          <label>Youtube Trailer ID:</label>
+          <input
+            type="text"
+            name="videoid"
+            placeholder="Insert youtube video id"
+            value={videoid}
+            onChange={(e) => setVideoid(e.target.value)}
           />
           <div className="btn-filterpage-container">
             <button>Edit</button>
