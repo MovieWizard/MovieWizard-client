@@ -1,5 +1,7 @@
 # MovieWizard Frontend (React)
 
+![Movie Wizard Logo](./src/assets/movie-wizard.png)
+
 ## Description
 
 The MovieWizard Frontend is the user interface component of the MovieWizard project. It allows users to discover and manage their favorite movies.
