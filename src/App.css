@@ -23,6 +23,15 @@ p{
   max-width: 1440px;
 }
 
+input {
+  height: 30px;
+}
+
+select {
+  height: 30px;
+  font-size: 14px;
+}
+
 button {
   color: #F8F8FF;
 }
@@ -609,8 +618,3 @@ footer a{
  justify-content: center;
  gap: 10px;
 }
-
-
-
-
-
