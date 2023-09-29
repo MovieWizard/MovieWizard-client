@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'ConnectTheDots';
-  src: local('ConnectTheDots'),
-    url('./public/fonts/ConnectTheDots-9Y472.woff') format('woff');
+  font-family: "ConnectTheDots";
+  src: local("ConnectTheDots"),
+    url("/fonts/ConnectTheDots-9Y472.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,7 +14,7 @@
 
   /*color-scheme: light dark;*/
   text-align: center;
-  background-color: 	#390505;
+  background-color: #390505;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,11 +25,11 @@
 
 a {
   font-weight: 500;
-  color: 	#F8F8FF;
+  color: #f8f8ff;
   text-decoration: inherit;
 }
 a:hover {
-  color:#DCDCDC;
+  color: #dcdcdc;
 }
 
 body {
@@ -53,7 +53,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #FFDAB9;
+  border-color: #ffdab9;
 }
 button:focus,
 button:focus-visible {
