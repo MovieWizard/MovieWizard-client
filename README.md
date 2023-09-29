@@ -6,7 +6,7 @@ The MovieWizard Frontend is the user interface component of the MovieWizard proj
 
 **IMPORTANT:** This repository contains the frontend code (React).
 
-A repository with the backend code (Express API) can be found here: [MovieWizard Backend](#https://github.com/MovieWizard/MovieWizard-server)
+A repository with the backend code (Express API) can be found here: [MovieWizard Backend](https://github.com/MovieWizard/MovieWizard-server)
 
 ## Getting Started
 
@@ -65,4 +65,4 @@ Here are some of the key dependencies used in this project:
 ## Demo
 
 You can test the deployed version of the MovieWizard frontend using the following link:
-[MovieWizard Frontend Demo](#https://movie-wizard.netlify.app/)
+[MovieWizard Frontend Demo](https://movie-wizard.netlify.app/)
