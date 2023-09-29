@@ -38,6 +38,7 @@ function EditMovie() {
         setPlot(movieData.plot);
         setImdbRating(movieData.imdbRating);
         setLanguage(movieData.language);
+        setVideoid(movieData.videoid);
       } catch (error) {
         console.log(error);
       }
@@ -62,6 +63,7 @@ function EditMovie() {
           plot: plot,
           imdbRating: imdbRating,
           language: language,
+          videoid: videoid,
         },
         {
           headers: {
