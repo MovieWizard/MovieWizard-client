@@ -468,10 +468,11 @@ gap: 150px;
 
 .app-name{
   color: #FFDAB9;
-  font-family: ConnectTheDots;
+  font-family:'Courier New', Courier, monospace;
   text-align: center;
   margin-top: 40px;
-  font-size: 100px;
+  margin-bottom: 40px;
+  font-size: 130px;
   text-shadow: 0 0 20px 	#F0E68C
 }
 
